@@ -4,164 +4,134 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hexa Dijital | 3s Premium</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
-    <style>
-      /* Sadece Logo için Özel Font */
-      @font-face {
-        font-family: "Agale";
-        src: url("assets/fonts/Agale.woff2") format("opentype");
-        font-display: swap;
-      }
-      .font-agale {
-        font-family: "Agale", sans-serif;
-      }
-
-      /* Tüm site için genel font */
-      body {
-        font-family: "Space Grotesk", sans-serif;
-        background-color: #030712;
-        color: #e2e8f0;
-      }
-
-      .brand-dijital {
-        line-height: 1.4;
-        padding-bottom: 0.5rem;
-        display: inline-block;
-      }
-
-      /* Neon Mint parlama efekti */
-      .glow-mint {
-        box-shadow: 0 0 20px rgba(0, 255, 209, 0.25);
-      }
-
-      /* CSS Değişkeni olarak ana rengimiz */
-      :root {
-        --neon-mint: #00ffd1;
-      }
-
-      /* --- 3D PETEK STİLLERİ --- */
-      .preserve-3d {
-        transform-style: preserve-3d;
-      }
-
-      @keyframes float-slow {
-        0%,
-        100% {
-          transform: translateY(0px) rotateX(0deg);
-        }
-        50% {
-          transform: translateY(-15px) rotateX(2deg);
-        }
-      }
-      @keyframes pulse-core {
-        0%,
-        100% {
-          box-shadow:
-            0 0 15px #00ffd1,
-            inset 0 0 15px #00ffd1;
-          opacity: 0.8;
-        }
-        50% {
-          box-shadow:
-            0 0 30px #00ffd1,
-            inset 0 0 30px #00ffd1;
-          opacity: 1;
-        }
-      }
-      .animate-float {
-        animation: float-slow 8s ease-in-out infinite;
-      }
-
-      @keyframes data-flow {
-        to {
-          stroke-dashoffset: -24;
-        }
-      }
-      .animate-data {
-        animation: data-flow 1.5s linear infinite;
-      }
-
-      .hex-shape {
-        clip-path: polygon(
-          50% 0%,
-          100% 25%,
-          100% 75%,
-          50% 100%,
-          0% 75%,
-          0% 25%
-        );
-      }
-
-      .glass-hex-body {
-        background: linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.15) 0%,
-          rgba(0, 255, 209, 0.05) 50%,
-          rgba(0, 0, 0, 0.1) 100%
-        );
-        backdrop-filter: blur(12px);
-        box-shadow:
-          inset 1px 1px 2px rgba(255, 255, 255, 0.6),
-          inset -1px -1px 2px rgba(0, 0, 0, 0.3);
-        transition: all 0.4s ease;
-      }
-
-      .glass-hex-border {
-        filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.5))
-          drop-shadow(0 0 8px rgba(0, 255, 209, 0.3));
-      }
-      .glass-hex-border polygon {
-        transition: all 0.4s ease;
-      }
-
-      .hex-container {
-        transition: z-index 0.4s ease;
-      }
-      .hex-container:hover {
-        z-index: 100;
-      }
-      .hex-container:hover .glass-hex-body {
-        background: linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.2) 0%,
-          rgba(0, 255, 209, 0.25) 100%
-        );
-        box-shadow:
-          inset 2px 2px 5px rgba(255, 255, 255, 0.8),
-          inset -2px -2px 5px rgba(0, 0, 0, 0.5),
-          0 0 35px rgba(0, 255, 209, 0.6),
-          inset 0 0 25px rgba(0, 255, 209, 0.5);
-      }
-      .hex-container:hover .glass-hex-border polygon {
-        stroke: #00ffd1 !important;
-        stroke-width: 2.5 !important;
-        stroke-opacity: 1 !important;
-      }
-    </style>
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
+  <style>
+    /* --- CINEMATIC LIGHT RAYS ENTEGRASYONU --- */
+    :root {
+      --deep-space: #010812;
+      --electric-blue: #0070ff;
+      --soft-cyan: #00ffd1; /* Senin neon-mint renginle eşledim */
+    }
+
+    /* Mevcut background rengini güncelle ki ışıklar belli olsun */
+    body,
+    .splash-screen {
+      background-color: var(--deep-space) !important;
+    }
+
+    .noise-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.06;
+      pointer-events: none;
+      background: url("https://grainy-gradients.vercel.app/noise.svg");
+      z-index: 1; /* Arka planın hemen üstü */
+    }
+
+    .light-wrapper {
+      position: fixed;
+      top: -20%;
+      left: -10%;
+      width: 130%;
+      height: 150%;
+      transform: rotate(-25deg); /* Görseldeki ikonik açıyı verir */
+      filter: blur(80px);
+      z-index: 0; /* Her şeyin en arkasında */
+      pointer-events: none;
+    }
+
+    .ray {
+      position: absolute;
+      top: 0;
+      mix-blend-mode: screen;
+      animation: flow 12s ease-in-out infinite alternate;
+    }
+
+    .ray-1 {
+      left: 10%;
+      width: 45%;
+      height: 100%;
+      background: linear-gradient(
+        180deg,
+        var(--electric-blue) 0%,
+        rgba(0, 112, 255, 0.3) 40%,
+        transparent 100%
+      );
+      opacity: 0.5;
+    }
+
+    .ray-2 {
+      left: 0%;
+      width: 25%;
+      height: 90%;
+      background: linear-gradient(
+        180deg,
+        var(--soft-cyan) 0%,
+        transparent 100%
+      );
+      opacity: 0.2;
+    }
+
+    .ray-3 {
+      left: 40%;
+      width: 35%;
+      height: 110%;
+      background: linear-gradient(
+        180deg,
+        var(--electric-blue) 0%,
+        transparent 100%
+      );
+      opacity: 0.4;
+      animation-delay: -6s;
+    }
+
+    @keyframes flow {
+      from {
+        transform: translateY(-5%) scaleX(1);
+        opacity: 0.3;
+      }
+      to {
+        transform: translateY(8%) scaleX(1.15);
+        opacity: 0.6;
+      }
+    }
+
+    /* Splash aurora ve blob'lar ışıklarla çakışmaması için şeffaflaştırıldı */
+    .splash-aurora {
+      opacity: 0.3;
+    }
+  </style>
 
   <body>
-    <div id="splash-screen">
-      <div id="aurora">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
+    <div class="noise-overlay"></div>
+    <div class="light-wrapper">
+      <div class="ray ray-1"></div>
+      <div class="ray ray-2"></div>
+      <div class="ray ray-3"></div>
+    </div>
+    <div id="splash-screen" class="splash-screen">
+      <div id="aurora" class="splash-aurora">
+        <div class="splash-blob blob-top-left"></div>
+        <div class="splash-blob blob-bottom-right"></div>
       </div>
 
-      <div id="masterWrapper">
-        <div id="markGroup">
-          <svg
-            viewBox="340 320 400 440"
-            class="splash-svg"
-          >
+      <div class="splash-wrapper">
+        <div class="splash-logo-container">
+          <svg viewBox="340 320 400 440" class="splash-logo">
             <g class="fill-white">
               <path
                 id="borderTrace"
@@ -207,28 +177,20 @@
             </g>
           </svg>
         </div>
-
-        <div id="textBlock">
-          <div class="hexa-title-wrapper">
-            <h1 id="hexa">
-              HEXA
-            </h1>
+        <div id="textBlock" class="splash-text-container">
+          <div class="splash-title-wrapper">
+            <h1 id="hexa" class="splash-title">HEXA</h1>
           </div>
-          <p id="dijital" class="brand-dijital">
-            Dijital
-          </p>
+          <p id="dijital" class="splash-subtitle">Dijital</p>
         </div>
       </div>
     </div>
 
-    <div id="main-content">
-      <nav>
-        <div class="nav-container">
-          <div class="logo-container group">
-            <svg
-              viewBox="340 320 400 440"
-              class="nav-svg"
-            >
+    <main id="main-content" class="main-layout" style="visibility: hidden">
+      <nav class="navbar" id="navbar">
+        <div class="container-fluid nav-inner">
+          <div class="nav-brand">
+            <svg viewBox="340 320 400 440" class="nav-logo">
               <g class="fill-white">
                 <path
                   d="M425.5,432.1l45.6,108.6-45.6,108.7-37.2-21.7-.3-173.6c.3-1.9,2.5-2.8,4.1-3.8,7.5-4.9,22.4-14,30.3-17.4s2-1,3.1-.8Z"
@@ -256,109 +218,81 @@
                 />
               </g>
             </svg>
-            <div class="logo-text-container">
-              <span class="logo-text-hexa">HEXA</span>
-              <span class="logo-text-dijital">Dijital</span>
+            <div class="nav-brand-text">
+              <span class="text-hexa">HEXA</span>
+              <span class="text-dijital">Dijital</span>
             </div>
           </div>
 
-          <ul class="nav-links">
-            <li class="nav-link-item">
-              Hizmetler<span class="nav-link-underline"></span>
+          <ul class="nav-menu" id="nav-menu">
+            <li class="nav-item">
+              <a href="#hizmetler" class="nav-link">Hizmetler</a>
+              <span class="nav-indicator"></span>
             </li>
-            <li class="nav-link-item">
-              Projeler<span class="nav-link-underline"></span>
+            <li class="nav-item">
+              <a href="#projeler" class="nav-link">Projeler</a>
+              <span class="nav-indicator"></span>
             </li>
-            <li class="nav-link-item">
-              Hakkımızda<span class="nav-link-underline"></span>
+            <li class="nav-item">
+              <a href="#hakkimizda" class="nav-link">Hakkımızda</a>
+              <span class="nav-indicator"></span>
             </li>
           </ul>
 
-          <button class="contact-button">
-            İletişime Geç
-          </button>
+          <div class="nav-right">
+            <button class="btn-outline hidden-mobile">İletişime Geç</button>
+            <button class="modern-menu-btn" id="hamburger">
+              <span class="line line-1"></span>
+              <span class="line line-2"></span>
+              <span class="line line-3"></span>
+            </button>
+          </div>
         </div>
       </nav>
 
-      <main>
-        <div class="hero-text-container">
-          <div class="hero-anim">
-            <span class="hero-subtitle">Dijital Dönüşüm</span>
+      <section class="container-fluid hero-grid">
+        <div class="hero-content">
+          <div class="hero-text-glow"></div>
+
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span class="badge-text">Yeni Nesil Dijital Ajans</span>
           </div>
 
-          <h2 class="hero-anim hero-title">
-            Geleceğin <br />
-            <span class="text-gradient-1">Dijital</span>
-            <span class="text-gradient-2">Ekosistemi.</span>
-          </h2>
+          <h1 class="hero-title">
+            Dijital Hikayenizin <br />
+            <span class="text-gradient-white">Yeni</span>
+            <span class="text-gradient-cyan">Sayfası.</span>
+          </h1>
 
-          <p class="hero-anim hero-description">
-            Sıradanlığı reddediyoruz. Yenilikçi teknolojiler ve kusursuz tasarım
-            anlayışımızla markanızı dijital dünyanın zirvesine taşıyoruz.
+          <p class="hero-desc">
+            Markanızı sadece büyütmüyor, dijital dünyadaki karmaşayı sizin için
+            basitleştiriyoruz. Sizi dinleyen, anlayan ve tıpkı sizin kadar
+            heyecan duyan butik bir ekiple tanışmaya hazır mısınız?
           </p>
 
-          <div class="hero-anim hero-buttons">
-            <button class="projects-button glow-mint">
-              Projeleri Keşfet
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                class="arrow-icon"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                />
-              </svg>
-            </button>
-            <button class="services-button">
-              Hizmetlerimiz
-            </button>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-val">Bütüncül</span>
+              <span class="stat-label">Yaklaşım</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-val">%100</span>
+              <span class="stat-label">Özgün Tasarım</span>
+            </div>
           </div>
         </div>
-
-        <div
-            class="animate-float animate-float-container"
-            style="transform: scale(0.9)"
-          >
-            <div
-              class="aurora-pulse"
-              style="transform: translateZ(-100px)"
-            ></div>
-
-            <div
-              id="interactive-honeycomb"
-              style="transform: rotateX(20deg) rotateY(-20deg)"
-            >
-              <div
-                class="honeycomb-centerer"
-                style="
-                  width: 120px;
-                  height: 138px;
-                  margin-left: -60px;
-                  margin-top: -69px;
-                "
-              >
+        <div class="hero-right-container">
+          <div class="animate-float honeycomb-scaler wrapper-3d">
+            <div class="honeycomb-glow blur-80"></div>
+            <div id="interactive-honeycomb" class="interactive-honeycomb">
+              <div class="honeycomb-center">
                 <div
-                  class="hex-node hex-node-mover"
-                  style="transform: translateZ(15px); opacity: 0"
+                  class="hex-item pointer-none"
+                  style="transform: translateZ(15px)"
                 >
-                  <svg
-                    viewBox="-200 -200 400 400"
-                    style="
-                      width: 400px;
-                      height: 400px;
-                      position: absolute;
-                      top: 50%;
-                      left: 50%;
-                      transform: translate(-50%, -50%);
-                      overflow: visible;
-                    "
-                  >
+                  <svg viewBox="-200 -200 400 400" class="hex-data-svg">
                     <g stroke="rgba(255,255,255,0.08)" stroke-width="1.5">
                       <line x1="0" y1="0" x2="85" y2="48" />
                       <line x1="0" y1="0" x2="-85" y2="-48" />
@@ -384,13 +318,10 @@
                 </div>
 
                 <div
-                  class="hex-node hex-container"
-                  style="transform: translateZ(80px); opacity: 0"
+                  class="hex-item interactive"
+                  style="transform: translateZ(40px)"
                 >
-                  <svg
-                    viewBox="0 0 100 115"
-                    class="glass-hex-border"
-                  >
+                  <svg viewBox="0 0 100 115" class="hex-svg glass-hex-border">
                     <polygon
                       points="50,1 99,27 99,88 50,114 1,88 1,27"
                       fill="none"
@@ -399,24 +330,16 @@
                       stroke-opacity="0.8"
                     />
                   </svg>
-                  <div class="glass-hex-body-wrapper hex-shape glass-hex-body"></div>
-                  <div
-                    class="core-pulse"
-                    style="transform: translateZ(30px)"
-                  ></div>
+                  <div class="hex-inner"></div>
                 </div>
 
                 <div
-                  class="hex-node hex-container"
-                  style="
-                    transform: translate(85px, 48px) translateZ(40px);
-                    opacity: 0;
-                  "
+                  class="hex-item interactive"
+                  style="transform: translate(85px, 48px) translateZ(40px)"
                 >
                   <svg
                     viewBox="0 0 100 115"
-                    class="glass-hex-border"
-                    style="filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.5))"
+                    class="hex-svg glass-hex-border shadow-md"
                   >
                     <polygon
                       points="50,1 99,27 99,88 50,114 1,88 1,27"
@@ -426,29 +349,16 @@
                       stroke-opacity="0.5"
                     />
                   </svg>
-                  <div
-                    class="glass-hex-body-wrapper hex-shape glass-hex-body"
-                    style="
-                      background: linear-gradient(
-                        135deg,
-                        rgba(255, 255, 255, 0.1) 0%,
-                        rgba(0, 0, 0, 0.1) 100%
-                      );
-                    "
-                  ></div>
+                  <div class="hex-inner bg-gradient-glass"></div>
                 </div>
 
                 <div
-                  class="hex-node hex-container"
-                  style="
-                    transform: translate(-85px, -48px) translateZ(20px);
-                    opacity: 0;
-                  "
+                  class="hex-item interactive"
+                  style="transform: translate(-85px, -48px) translateZ(20px)"
                 >
                   <svg
                     viewBox="0 0 100 115"
-                    class="glass-hex-border"
-                    style="filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.5))"
+                    class="hex-svg glass-hex-border shadow-md"
                   >
                     <polygon
                       points="50,1 99,27 99,88 50,114 1,88 1,27"
@@ -458,29 +368,14 @@
                       stroke-opacity="0.4"
                     />
                   </svg>
-                  <div
-                    class="glass-hex-body-wrapper hex-shape glass-hex-body"
-                    style="
-                      background: linear-gradient(
-                        135deg,
-                        rgba(255, 255, 255, 0.1) 0%,
-                        rgba(0, 0, 0, 0.1) 100%
-                      );
-                    "
-                  ></div>
+                  <div class="hex-inner bg-gradient-glass"></div>
                 </div>
 
                 <div
-                  class="hex-node hex-container"
-                  style="
-                    transform: translate(0px, -95px) translateZ(0px);
-                    opacity: 0;
-                  "
+                  class="hex-item interactive"
+                  style="transform: translate(0px, -95px) translateZ(0px)"
                 >
-                  <svg
-                    viewBox="0 0 100 115"
-                    class="glass-hex-border"
-                  >
+                  <svg viewBox="0 0 100 115" class="hex-svg glass-hex-border">
                     <polygon
                       points="50,1 99,27 99,88 50,114 1,88 1,27"
                       fill="none"
@@ -489,23 +384,14 @@
                       stroke-opacity="0.3"
                     />
                   </svg>
-                  <div
-                    class="glass-hex-body-wrapper hex-shape glass-hex-body"
-                    style="opacity: 0.7"
-                  ></div>
+                  <div class="hex-inner" style="opacity: 0.7"></div>
                 </div>
 
                 <div
-                  class="hex-node hex-container"
-                  style="
-                    transform: translate(0px, 95px) translateZ(10px);
-                    opacity: 0;
-                  "
+                  class="hex-item interactive"
+                  style="transform: translate(0px, 95px) translateZ(10px)"
                 >
-                  <svg
-                    viewBox="0 0 100 115"
-                    class="glass-hex-border"
-                  >
+                  <svg viewBox="0 0 100 115" class="hex-svg glass-hex-border">
                     <polygon
                       points="50,1 99,27 99,88 50,114 1,88 1,27"
                       fill="none"
@@ -514,23 +400,19 @@
                       stroke-opacity="0.3"
                     />
                   </svg>
-                  <div
-                    class="glass-hex-body-wrapper hex-shape glass-hex-body"
-                    style="opacity: 0.8"
-                  ></div>
+                  <div class="hex-inner" style="opacity: 0.8"></div>
                 </div>
 
                 <div
-                  class="hex-node hex-container"
+                  class="hex-item interactive"
                   style="
                     transform: translate(140px, -25px) translateZ(-40px)
                       scale(0.9);
-                    opacity: 0;
                   "
                 >
                   <svg
                     viewBox="0 0 100 115"
-                    class="glass-hex-border"
+                    class="hex-svg glass-hex-border"
                     style="filter: none"
                   >
                     <polygon
@@ -542,26 +424,21 @@
                     />
                   </svg>
                   <div
-                    class="glass-hex-body-wrapper hex-shape glass-hex-body"
-                    style="
-                      opacity: 0.4;
-                      background: transparent;
-                      box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.2);
-                    "
+                    class="hex-inner bg-transparent-shadow"
+                    style="opacity: 0.4"
                   ></div>
                 </div>
 
                 <div
-                  class="hex-node hex-container"
+                  class="hex-item interactive"
                   style="
                     transform: translate(-140px, 35px) translateZ(-60px)
                       scale(0.8);
-                    opacity: 0;
                   "
                 >
                   <svg
                     viewBox="0 0 100 115"
-                    class="glass-hex-border"
+                    class="hex-svg glass-hex-border"
                     style="filter: none"
                   >
                     <polygon
@@ -573,180 +450,459 @@
                     />
                   </svg>
                   <div
-                    class="glass-hex-body-wrapper hex-shape glass-hex-body"
-                    style="
-                      opacity: 0.3;
-                      background: transparent;
-                      box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.2);
-                    "
+                    class="hex-inner bg-transparent-shadow"
+                    style="opacity: 0.3"
                   ></div>
                 </div>
 
                 <div
-                  class="hex-node particle-1"
+                  class="dot-item bg-white shadow-white pulse-anim"
                   style="
                     transform: translate(110px, -60px) translateZ(100px);
-                    opacity: 0;
+                    width: 6px;
+                    height: 6px;
                   "
                 ></div>
                 <div
-                  class="hex-node particle-2"
+                  class="dot-item bg-cyan shadow-cyan"
                   style="
                     transform: translate(-100px, 70px) translateZ(50px);
-                    opacity: 0;
+                    width: 8px;
+                    height: 8px;
                   "
                 ></div>
               </div>
             </div>
           </div>
         </div>
-      </main>
-    </div>
+      </section>
+      <section id="nasil-calisiyoruz" class="section-how-we-work">
+        <div class="section-glow"></div>
 
+        <div class="container-fluid">
+          <div class="services-header-wrapper">
+            <div class="section-header">
+              <span class="section-subtitle">Sürecimiz</span>
+              <h2 class="section-title">
+                Dijital Başarınızın <br />
+                <span class="text-gradient-cyan">4 Adımlı Formülü.</span>
+              </h2>
+            </div>
+            <p class="section-desc">
+              Size hazır kalıplar sunmuyoruz. İhtiyacınızı dinliyor, temeli
+              <strong class="text-cyan">özel kodla</strong> atıyor ve estetikle
+              birleştirerek dünyaya sunuyoruz.
+            </p>
+          </div>
+
+          <div class="hexa-bento-grid">
+            <div class="hexa-card step-analyze">
+              <div class="card-content">
+                <div class="step-indicator">01</div>
+                <h3>Dinleme & Stratejik Analiz</h3>
+                <p>
+                  Her büyük proje, derin bir anlayışla başlar. Sizi,
+                  hedeflerinizi ve sektörünüzü dinliyoruz. Verileri masaya
+                  yatırıp, sadece size özel, sonuç odaklı bir dijital yol
+                  haritası çıkarıyoruz.
+                </p>
+                <ul class="hexa-list">
+                  <li>Beklenti ve Hedef Analizi</li>
+                  <li>Rakip ve Pazar Araştırması</li>
+                  <li>Proje Mimarisi Kurgusu</li>
+                </ul>
+              </div>
+              <div class="card-lottie lottie-pos-1">
+                <dotlottie-player
+                  src="assets/lottie/analysis.json"
+                  speed="0.8"
+                  loop
+                  autoplay
+                ></dotlottie-player>
+              </div>
+            </div>
+
+            <div class="hexa-card step-code">
+              <div class="card-content">
+                <div class="step-indicator">02</div>
+                <h3>Özel Yazılım & Sağlam Temel</h3>
+                <p>
+                  Analizi mühendisliğe dönüştürüyoruz. Hazır sistemler yerine,
+                  ihtiyacınıza tam yanıt veren, hızlı ve güvenli bir altyapıyı
+                  sıfırdan kodluyoruz.
+                </p>
+              </div>
+              <div class="card-lottie lottie-pos-2">
+                <dotlottie-player
+                  src="assets/lottie/coder.json"
+                  speed="0.8"
+                  loop
+                  autoplay
+                ></dotlottie-player>
+              </div>
+            </div>
+
+            <div class="hexa-card step-design">
+              <div class="card-content">
+                <div class="step-indicator">03</div>
+                <h3>Estetik & UI/UX Tasarımı</h3>
+                <p>
+                  Sağlam temeli, büyüleyici bir vitrinle taçlandırıyoruz.
+                  Markanızın ruhunu yansıtan, kullanıcı dostu ve modern
+                  arayüzler tasarlıyoruz.
+                </p>
+              </div>
+              <div class="card-lottie lottie-pos-3">
+                <dotlottie-player
+                  src="assets/lottie/design.json"
+                  speed="0.8"
+                  loop
+                  autoplay
+                ></dotlottie-player>
+              </div>
+            </div>
+
+            <div class="hexa-card step-launch">
+              <div class="card-content">
+                <div class="step-indicator">04</div>
+                <h3>Lansman & Dünyaya Açılma</h3>
+                <p>
+                  Artık sahne sizin. Testleri tamamlanmış, kusursuz çalışan
+                  projenizi yayına alıyor ve dijital dünyadaki yerinizi almanızı
+                  sağlıyoruz.
+                </p>
+              </div>
+              <div class="card-lottie lottie-pos-4">
+                <dotlottie-player
+                  src="assets/lottie/launch.json"
+                  speed="0.8"
+                  loop
+                  autoplay
+                ></dotlottie-player>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="hizmetlerimiz" class="section-expand-services">
+        <div class="container-fluid">
+          <div class="services-header-wrapper text-center">
+            <div class="section-header">
+              <span class="section-subtitle">Neler Yapıyoruz?</span>
+              <h2 class="section-title">
+                Dijital Dönüşümünüz İçin <br />
+                <span class="text-gradient-cyan">Uçtan Uca Çözümler.</span>
+              </h2>
+            </div>
+          </div>
+
+          <div class="accordion-gallery">
+            <div class="acc-panel">
+              <div class="acc-bg-image bg-code"></div>
+
+              <div class="acc-bg-number">01</div>
+              <div class="vertical-title">
+                <span class="v-num">01</span>
+                <h3 class="v-text">Web & Yazılım Çözümleri</h3>
+              </div>
+              <div class="expanded-content">
+                <div class="exp-header">
+                  <div class="exp-icon">💻</div>
+                  <h3>Web & Yazılım Çözümleri</h3>
+                </div>
+                <ul class="exp-list">
+                  <li>Kurumsal Web Tasarım</li>
+                  <li>Özel Web Yazılımları (Laravel, React, Node.js)</li>
+                  <li>E-Ticaret Sistemleri</li>
+                  <li>İş Süreçleri ve Otomasyon Yazılımları</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="acc-panel">
+              <div class="acc-bg-image bg-design"></div>
+
+              <div class="acc-bg-number">02</div>
+              <div class="vertical-title">
+                <span class="v-num">02</span>
+                <h3 class="v-text">Tasarım & Kreatif</h3>
+              </div>
+              <div class="expanded-content">
+                <div class="exp-header">
+                  <div class="exp-icon">🎨</div>
+                  <h3>Tasarım & Kreatif</h3>
+                </div>
+                <ul class="exp-list">
+                  <li>UI/UX (Kullanıcı Deneyimi ve Arayüz) Tasarımı</li>
+                  <li>Kurumsal Kimlik & Markalama</li>
+                  <li>Video Prodüksiyon & Hareketli Grafikler</li>
+                  <li>Profesyonel Ürün ve Mekan Çekimi</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="acc-panel">
+              <div class="acc-bg-image bg-tech"></div>
+
+              <div class="acc-bg-number">03</div>
+              <div class="vertical-title">
+                <span class="v-num">03</span>
+                <h3 class="v-text">Teknoloji & Mobil</h3>
+              </div>
+              <div class="expanded-content">
+                <div class="exp-header">
+                  <div class="exp-icon">🚀</div>
+                  <h3>Teknoloji & Mobil</h3>
+                </div>
+                <ul class="exp-list">
+                  <li>Yapay Zeka (AI) Çözümleri ve Entegrasyonları</li>
+                  <li>Mobil Uygulama Geliştirme (iOS & Android)</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="acc-panel">
+              <div class="acc-bg-image bg-marketing"></div>
+
+              <div class="acc-bg-number">04</div>
+              <div class="vertical-title">
+                <span class="v-num">04</span>
+                <h3 class="v-text">Dijital Pazarlama (Growth)</h3>
+              </div>
+              <div class="expanded-content">
+                <div class="exp-header">
+                  <div class="exp-icon">📈</div>
+                  <h3>Dijital Pazarlama</h3>
+                </div>
+                <ul class="exp-list">
+                  <li>Sosyal Medya Yönetimi ve İçerik Üretimi</li>
+                  <li>SEO (Arama Motoru Optimizasyonu)</li>
+                  <li>Performans Pazarlaması (Google, Meta Ads)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section-tech-marquee">
+        <div class="marquee-container">
+          <div class="marquee-track">
+            <div class="marquee-item">
+              <span class="tech-icon">⚡</span>
+              <span class="tech-name">Laravel</span>
+            </div>
+            <div class="marquee-item">
+              <span class="tech-icon">⚛️</span>
+              <span class="tech-name">React</span>
+            </div>
+            <div class="marquee-item">
+              <span class="tech-icon">🟢</span>
+              <span class="tech-name">Node.js</span>
+            </div>
+            <div class="marquee-item">
+              <span class="tech-icon">🐍</span>
+              <span class="tech-name">Python</span>
+            </div>
+            <div class="marquee-item">
+              <span class="tech-icon">🍃</span>
+              <span class="tech-name">MongoDB</span>
+            </div>
+            <div class="marquee-item">
+              <span class="tech-icon">🎨</span>
+              <span class="tech-name">Adobe CC</span>
+            </div>
+            <div class="marquee-item">
+              <span class="tech-icon">🌐</span>
+              <span class="tech-name">Three.js</span>
+            </div>
+
+            <div class="marquee-item">
+              <span class="tech-icon">⚡</span>
+              <span class="tech-name">Laravel</span>
+            </div>
+            <div class="marquee-item">
+              <span class="tech-icon">⚛️</span>
+              <span class="tech-name">React</span>
+            </div>
+            <div class="marquee-item">
+              <span class="tech-icon">🟢</span>
+              <span class="tech-name">Node.js</span>
+            </div>
+            <div class="marquee-item">
+              <span class="tech-icon">🐍</span>
+              <span class="tech-name">Python</span>
+            </div>
+            <div class="marquee-item">
+              <span class="tech-icon">🍃</span>
+              <span class="tech-name">MongoDB</span>
+            </div>
+            <div class="marquee-item">
+              <span class="tech-icon">🎨</span>
+              <span class="tech-name">Adobe CC</span>
+            </div>
+            <div class="marquee-item">
+              <span class="tech-icon">🌐</span>
+              <span class="tech-name">Three.js</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projeler" class="section-selected-works">
+        <div class="container-fluid">
+          <div class="services-header-wrapper text-left">
+            <div class="section-header">
+              <span class="section-subtitle">Seçilmiş İşler</span>
+              <h2 class="section-title">
+                Vizyonu Koda, <br />
+                <span class="text-gradient-cyan"
+                  >Kodu Gerçeğe Dönüştürdük.</span
+                >
+              </h2>
+            </div>
+            <p class="section-desc">
+              Sadece ekranda güzel duran değil, arka planda devasa bir
+              mühendislikle çalışan, markalara seviye atlatan gurur tablomuz.
+            </p>
+          </div>
+
+          <div class="stacked-cards-wrapper">
+            <div class="stacked-card card-1">
+              <div class="project-content">
+                <div class="project-info">
+                  <div class="project-meta">
+                    <span class="meta-tag">AI & İnovasyon</span>
+                    <span class="meta-year">2026</span>
+                  </div>
+                  <h3 class="project-title">
+                    Nilüfer Belediyesi Hologram Asistanı
+                  </h3>
+                  <p class="project-desc">
+                    Yapay zeka entegreli, vatandaşlara interaktif hizmet veren
+                    yeni nesil hologram asistan ve kiosk projesi.
+                  </p>
+                  <a href="#" class="btn-project-link"
+                    >Detayları İncele <span class="arrow">↗</span></a
+                  >
+                </div>
+                <div class="project-visual">
+                  <div
+                    class="mockup-image"
+                    style="
+                      background-image: url(&quot;assets/img/projects/hologram-mockup.jpg&quot;);
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="stacked-card card-2">
+              <div class="project-content">
+                <div class="project-info">
+                  <div class="project-meta">
+                    <span class="meta-tag">Özel Donanım & Yazılım</span>
+                    <span class="meta-year">2026</span>
+                  </div>
+                  <h3 class="project-title">Hexa POS & Termal Otomasyon</h3>
+                  <p class="project-desc">
+                    Honeywell barkod okuyucu ve termal yazıcı entegrasyonuyla
+                    işletmelere özel sıfırdan geliştirilmiş Android tabanlı
+                    akıllı satış (POS) sistemi.
+                  </p>
+                  <a href="#" class="btn-project-link"
+                    >Detayları İncele <span class="arrow">↗</span></a
+                  >
+                </div>
+                <div class="project-visual">
+                  <div
+                    class="mockup-image"
+                    style="
+                      background-image: url(&quot;assets/img/projects/pos-mockup.jpg&quot;);
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="stacked-card card-3">
+              <div class="project-content">
+                <div class="project-info">
+                  <div class="project-meta">
+                    <span class="meta-tag">UI/UX & Kurumsal Web</span>
+                    <span class="meta-year">2026</span>
+                  </div>
+                  <h3 class="project-title">Paninoteca Chicken</h3>
+                  <p class="project-desc">
+                    Markanın iştah açıcı kurumsal kimliğini dijitale taşıyan,
+                    yüksek dönüşüm oranlı modern bir gastronomi web arayüzü.
+                  </p>
+                  <a href="#" class="btn-project-link"
+                    >Detayları İncele <span class="arrow">↗</span></a
+                  >
+                </div>
+                <div class="project-visual">
+                  <div
+                    class="mockup-image"
+                    style="
+                      background-image: url(&quot;assets/img/projects/paninoteca-mockup.jpg&quot;);
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="stacked-card card-4">
+              <div class="project-content">
+                <div class="project-info">
+                  <div class="project-meta">
+                    <span class="meta-tag">B2B Web Platformu</span>
+                    <span class="meta-year">2026</span>
+                  </div>
+                  <h3 class="project-title">Duraxx Medikal Sistemleri</h3>
+                  <p class="project-desc">
+                    Odyoloji ve medikal ürünler sektöründeki lider markanın
+                    uluslararası standartlara uygun yeni kurumsal web platformu.
+                  </p>
+                  <a href="#" class="btn-project-link"
+                    >Detayları İncele <span class="arrow">↗</span></a
+                  >
+                </div>
+                <div class="project-visual">
+                  <div
+                    class="mockup-image"
+                    style="
+                      background-image: url(&quot;assets/img/projects/duraxx-mockup.jpg&quot;);
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="assets/js/script.js"></script>
     <script>
-      const DEV_MODE = false;
-
-      // Senin arka plan bulanık animasyonun
-      if (!DEV_MODE) {
-        gsap.to(".blob", {
-          x: "random(-30, 30)",
-          y: "random(-30, 30)",
-          duration: 8,
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut",
-        });
-      }
-
-      const mm = gsap.matchMedia();
-      mm.add(
-        { isDesktop: "(min-width: 768px)", isMobile: "(max-width: 767px)" },
-        (context) => {
-          let { isDesktop } = context.conditions;
-
-          if (DEV_MODE) {
-            document.getElementById("splash-screen").style.display = "none";
-            const mainContent = document.getElementById("main-content");
-            mainContent.classList.remove("hidden");
-            gsap.set(mainContent, { opacity: 1 });
-            gsap.set(".hero-anim", { y: 0, opacity: 1 });
-            gsap.set(".hex-node", { opacity: 1 });
-            return;
-          }
-
-          const tl = gsap.timeline({
-            defaults: { ease: "expo.out" },
-            onComplete: () => {
-              gsap.to("#splash-screen", {
-                opacity: 0,
-                duration: 1.2,
-                ease: "power2.inOut",
-                onComplete: () => {
-                  document.getElementById("splash-screen").style.display =
-                    "none";
-                  const mainContent = document.getElementById("main-content");
-                  mainContent.classList.remove("hidden");
-
-                  // Sayfa içeriği gösteriliyor
-                  gsap.to(mainContent, {
-                    opacity: 1,
-                    duration: 0.5,
-                    ease: "power1.inOut",
-                  });
-
-                  // Sol Taraf: Metin Animasyonları
-                  gsap.to(".hero-anim", {
-                    y: 0,
-                    opacity: 1,
-                    duration: 1.2,
-                    stagger: 0.15,
-                    ease: "power3.out",
-                    delay: 0.2,
-                  });
-
-                  // Sağ Taraf: Peteklerin Belirme Animasyonu
-                  gsap.to(".hex-node", {
-                    opacity: 1,
-                    duration: 1.2,
-                    stagger: 0.1,
-                    ease: "power2.out",
-                    delay: 0.4,
-                  });
-                },
-              });
-            },
-          });
-
-          // SPLASH SCREEN KODLARI (Sana Ait)
-          gsap.set(".mark-piece", {
-            opacity: 0,
-            scale: 0.6,
-            filter: "blur(15px)",
-            transformOrigin: "center",
-          });
-
-          if (isDesktop) {
-            gsap.set("#textBlock", { width: 0, height: "auto", opacity: 0 });
-          } else {
-            gsap.set("#textBlock", { width: "auto", height: 0, opacity: 0 });
-          }
-
-          tl.to("#aurora", { opacity: 0.8, duration: 1.2 }, 0);
-          tl.to(
-            ".mark-piece",
-            {
-              opacity: 1,
-              scale: 1,
-              filter: "blur(0px)",
-              duration: 1.2,
-              stagger: { amount: 0.5, from: "center" },
-            },
-            0.2,
-          );
-
-          if (isDesktop) {
-            tl.to(
-              "#textBlock",
-              { width: "auto", opacity: 1, duration: 1.4, ease: "expo.inOut" },
-              1.0,
-            );
-          } else {
-            tl.to(
-              "#textBlock",
-              { height: "auto", opacity: 1, duration: 1.4, ease: "expo.inOut" },
-              1.0,
-            );
-          }
-
-          tl.to("#hexa", { y: 0, duration: 1.2 }, 1.2);
-          tl.to(
-            "#dijital",
-            { opacity: 1, x: 0, duration: 1.0, ease: "power2.out" },
-            1.6,
-          );
-
-          return () => {
-            tl.kill();
-          };
-        },
-      );
-
-      // SAĞ TARAF PETEK 3D MOUSE ETKİLEŞİMİ
       document.addEventListener("DOMContentLoaded", () => {
-        const honeycomb = document.getElementById("interactive-honeycomb");
-        if (!honeycomb) return;
-        const baseRotateX = 15;
-        const baseRotateY = -15;
-        const maxTilt = 8;
+        const panels = document.querySelectorAll(".acc-panel");
 
-        document.addEventListener("mousemove", (e) => {
-          const centerX = window.innerWidth / 2;
-          const centerY = window.innerHeight / 2;
-          const mouseX = (e.clientX - centerX) / centerX;
-          const mouseY = (e.clientY - centerY) / centerY;
-          const rotateX = baseRotateX - mouseY * maxTilt;
-          const rotateY = baseRotateY + mouseX * maxTilt;
-          honeycomb.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        // İlk paneli varsayılan olarak açık getirmek istersen aşağıdaki satırı açabilirsin:
+        // if(panels.length > 0) panels[0].classList.add('active');
+
+        panels.forEach((panel) => {
+          panel.addEventListener("click", () => {
+            // Tıklanan zaten açıksa hiçbir şey yapma veya kapat
+            if (panel.classList.contains("active")) return;
+
+            // Diğer tüm panellerden active sınıfını kaldır (Kapanmalarını sağla)
+            panels.forEach((p) => p.classList.remove("active"));
+
+            // Tıklanan panele active sınıfını ekle (Açılmasını sağla)
+            panel.classList.add("active");
+          });
         });
       });
     </script>
