@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hexa Dijital | 3s Premium</title>
+    <title>Hexa Dijital | Premium Performans</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,7 +18,10 @@
   </head>
 
   <body>
-    <div class="noise-overlay"></div>
+    <div id="custom-scrollbar" class="custom-scrollbar">
+      <div id="custom-scroll-thumb" class="custom-scroll-thumb"></div>
+    </div>
+
     <div class="light-wrapper">
       <div class="ray ray-1"></div>
       <div class="ray ray-2"></div>
@@ -26,10 +29,7 @@
     </div>
 
     <div id="splash-screen" class="splash-screen">
-      <div id="aurora" class="splash-aurora">
-        <div class="splash-blob blob-top-left"></div>
-        <div class="splash-blob blob-bottom-right"></div>
-      </div>
+      <div id="aurora" class="splash-aurora"></div>
 
       <div class="splash-wrapper">
         <div class="splash-logo-container">
@@ -42,7 +42,7 @@
                 stroke="#00ffd1"
                 stroke-width="4"
                 stroke-linecap="round"
-                style="filter: drop-shadow(0 0 12px #00ffd1); opacity: 0"
+                style="opacity: 0"
               />
               <path
                 d="M425.5,432.1l45.6,108.6-45.6,108.7-37.2-21.7-.3-173.6c.3-1.9,2.5-2.8,4.1-3.8,7.5-4.9,22.4-14,30.3-17.4s2-1,3.1-.8Z"
@@ -129,15 +129,12 @@
           <ul class="nav-menu" id="nav-menu">
             <li class="nav-item">
               <a href="#hizmetler" class="nav-link">Hizmetler</a>
-              <span class="nav-indicator"></span>
             </li>
             <li class="nav-item">
               <a href="#projeler" class="nav-link">Projeler</a>
-              <span class="nav-indicator"></span>
             </li>
             <li class="nav-item">
               <a href="#hakkimizda" class="nav-link">Hakkımızda</a>
-              <span class="nav-indicator"></span>
             </li>
           </ul>
 
@@ -152,8 +149,8 @@
         </div>
       </nav>
 
-      <section class="container-fluid hero-grid">
-        <div class="hero-content">
+      <section class="container-fluid hero-section">
+        <div class="hero-content-wrapper">
           <div class="hero-text-glow"></div>
 
           <div class="hero-badge">
@@ -175,27 +172,24 @@
 
           <div class="hero-stats">
             <div class="stat-item">
-              <span class="stat-val">Bütüncül</span>
-              <span class="stat-label">Yaklaşım</span>
+              <span class="stat-val">Bütüncül</span
+              ><span class="stat-label">Yaklaşım</span>
             </div>
             <div class="stat-divider"></div>
             <div class="stat-item">
-              <span class="stat-val">%100</span>
-              <span class="stat-label">Özgün Tasarım</span>
+              <span class="stat-val">%100</span
+              ><span class="stat-label">Özgün Tasarım</span>
             </div>
           </div>
         </div>
-        <div class="hero-right-container">
-          <div class="animate-float honeycomb-scaler wrapper-3d">
-            <div class="honeycomb-glow blur-80"></div>
+
+        <div class="hero-visual-wrapper">
+          <div class="animate-float">
             <div id="interactive-honeycomb" class="interactive-honeycomb">
               <div class="honeycomb-center">
-                <div
-                  class="hex-item pointer-none"
-                  style="transform: translateZ(15px)"
-                >
+                <div class="hex-item" style="transform: translateZ(15px)">
                   <svg viewBox="-200 -200 400 400" class="hex-data-svg">
-                    <g stroke="rgba(255,255,255,0.08)" stroke-width="1.5">
+                    <g stroke="rgba(255,255,255,0.08)" stroke-width="2">
                       <line x1="0" y1="0" x2="85" y2="48" />
                       <line x1="0" y1="0" x2="-85" y2="-48" />
                       <line x1="0" y1="0" x2="0" y2="-95" />
@@ -219,10 +213,7 @@
                   </svg>
                 </div>
 
-                <div
-                  class="hex-item interactive"
-                  style="transform: translateZ(40px)"
-                >
+                <div class="hex-item" style="transform: translateZ(40px)">
                   <svg viewBox="0 0 100 115" class="hex-svg glass-hex-border">
                     <polygon
                       points="50,1 99,27 99,88 50,114 1,88 1,27"
@@ -236,7 +227,7 @@
                 </div>
 
                 <div
-                  class="hex-item interactive"
+                  class="hex-item"
                   style="transform: translate(85px, 48px) translateZ(40px)"
                 >
                   <svg
@@ -251,11 +242,11 @@
                       stroke-opacity="0.5"
                     />
                   </svg>
-                  <div class="hex-inner bg-gradient-glass"></div>
+                  <div class="hex-inner"></div>
                 </div>
 
                 <div
-                  class="hex-item interactive"
+                  class="hex-item"
                   style="transform: translate(-85px, -48px) translateZ(20px)"
                 >
                   <svg
@@ -270,11 +261,11 @@
                       stroke-opacity="0.4"
                     />
                   </svg>
-                  <div class="hex-inner bg-gradient-glass"></div>
+                  <div class="hex-inner"></div>
                 </div>
 
                 <div
-                  class="hex-item interactive"
+                  class="hex-item"
                   style="transform: translate(0px, -95px) translateZ(0px)"
                 >
                   <svg viewBox="0 0 100 115" class="hex-svg glass-hex-border">
@@ -290,7 +281,7 @@
                 </div>
 
                 <div
-                  class="hex-item interactive"
+                  class="hex-item"
                   style="transform: translate(0px, 95px) translateZ(10px)"
                 >
                   <svg viewBox="0 0 100 115" class="hex-svg glass-hex-border">
@@ -306,7 +297,7 @@
                 </div>
 
                 <div
-                  class="hex-item interactive"
+                  class="hex-item"
                   style="
                     transform: translate(140px, -25px) translateZ(-40px)
                       scale(0.9);
@@ -325,14 +316,11 @@
                       stroke-opacity="0.2"
                     />
                   </svg>
-                  <div
-                    class="hex-inner bg-transparent-shadow"
-                    style="opacity: 0.4"
-                  ></div>
+                  <div class="hex-inner" style="opacity: 0.4"></div>
                 </div>
 
                 <div
-                  class="hex-item interactive"
+                  class="hex-item"
                   style="
                     transform: translate(-140px, 35px) translateZ(-60px)
                       scale(0.8);
@@ -351,14 +339,11 @@
                       stroke-opacity="0.2"
                     />
                   </svg>
-                  <div
-                    class="hex-inner bg-transparent-shadow"
-                    style="opacity: 0.3"
-                  ></div>
+                  <div class="hex-inner" style="opacity: 0.3"></div>
                 </div>
 
                 <div
-                  class="dot-item bg-white shadow-white pulse-anim"
+                  class="dot-item pulse-anim"
                   style="
                     transform: translate(110px, -60px) translateZ(100px);
                     width: 6px;
@@ -379,14 +364,12 @@
         </div>
       </section>
       <section id="nasil-calisiyoruz" class="section-how-we-work">
-        <div class="section-glow"></div>
-
         <div class="container-fluid">
           <div class="services-header-wrapper">
             <div class="section-header">
               <span class="section-subtitle">Sürecimiz</span>
               <h2 class="section-title">
-                Dijital Başarınızın <br />
+                Dijital Başarınızın
                 <span class="text-gradient-cyan">4 Adımlı Formülü.</span>
               </h2>
             </div>
@@ -416,10 +399,10 @@
               </div>
               <div class="card-lottie lottie-pos-1">
                 <dotlottie-player
-                  src="assets/lottie/analysis.json"
+                  src="assets/lottie/analyzing.lottie"
                   speed="0.8"
                   loop
-                  autoplay
+                  renderer="svg"
                 ></dotlottie-player>
               </div>
             </div>
@@ -436,10 +419,10 @@
               </div>
               <div class="card-lottie lottie-pos-2">
                 <dotlottie-player
-                  src="assets/lottie/coder.json"
+                  src="assets/lottie/coder.lottie"
                   speed="0.8"
                   loop
-                  autoplay
+                  renderer="canvas"
                 ></dotlottie-player>
               </div>
             </div>
@@ -456,10 +439,10 @@
               </div>
               <div class="card-lottie lottie-pos-3">
                 <dotlottie-player
-                  src="assets/lottie/design.json"
+                  src="assets/lottie/graphic-designer.lottie"
                   speed="0.8"
                   loop
-                  autoplay
+                  renderer="canvas"
                 ></dotlottie-player>
               </div>
             </div>
@@ -476,10 +459,11 @@
               </div>
               <div class="card-lottie lottie-pos-4">
                 <dotlottie-player
-                  src="assets/lottie/launch.json"
+                  src="assets/lottie/launch.lottie"
                   speed="0.8"
                   loop
-                  autoplay
+                  loop
+                  renderer="canvas"
                 ></dotlottie-player>
               </div>
             </div>
@@ -492,8 +476,9 @@
             <div class="section-header">
               <span class="section-subtitle">Neler Yapıyoruz?</span>
               <h2 class="section-title">
-                Dijital Dönüşümünüz İçin <br />
-                <span class="text-gradient-cyan">Uçtan Uca Çözümler.</span>
+                Dijital Dönüşümünüz İçin <br /><span class="text-gradient-cyan"
+                  >Uçtan Uca Çözümler.</span
+                >
               </h2>
             </div>
           </div>
@@ -501,7 +486,6 @@
           <div class="accordion-gallery">
             <div class="acc-panel">
               <div class="acc-bg-image bg-code"></div>
-
               <div class="acc-bg-number">01</div>
               <div class="vertical-title">
                 <span class="v-num">01</span>
@@ -514,16 +498,14 @@
                 </div>
                 <ul class="exp-list">
                   <li>Kurumsal Web Tasarım</li>
-                  <li>Özel Web Yazılımları (Laravel, React, Node.js)</li>
+                  <li>Özel Web Yazılımları</li>
                   <li>E-Ticaret Sistemleri</li>
-                  <li>İş Süreçleri ve Otomasyon Yazılımları</li>
+                  <li>Otomasyon Yazılımları</li>
                 </ul>
               </div>
             </div>
-
             <div class="acc-panel">
               <div class="acc-bg-image bg-design"></div>
-
               <div class="acc-bg-number">02</div>
               <div class="vertical-title">
                 <span class="v-num">02</span>
@@ -535,17 +517,15 @@
                   <h3>Tasarım & Kreatif</h3>
                 </div>
                 <ul class="exp-list">
-                  <li>UI/UX (Kullanıcı Deneyimi ve Arayüz) Tasarımı</li>
-                  <li>Kurumsal Kimlik & Markalama</li>
-                  <li>Video Prodüksiyon & Hareketli Grafikler</li>
-                  <li>Profesyonel Ürün ve Mekan Çekimi</li>
+                  <li>UI/UX Tasarımı</li>
+                  <li>Kurumsal Kimlik</li>
+                  <li>Video Prodüksiyon</li>
+                  <li>Ürün Çekimi</li>
                 </ul>
               </div>
             </div>
-
             <div class="acc-panel">
               <div class="acc-bg-image bg-tech"></div>
-
               <div class="acc-bg-number">03</div>
               <div class="vertical-title">
                 <span class="v-num">03</span>
@@ -557,19 +537,17 @@
                   <h3>Teknoloji & Mobil</h3>
                 </div>
                 <ul class="exp-list">
-                  <li>Yapay Zeka (AI) Çözümleri ve Entegrasyonları</li>
-                  <li>Mobil Uygulama Geliştirme (iOS & Android)</li>
+                  <li>Yapay Zeka (AI) Çözümleri</li>
+                  <li>Mobil Uygulama Geliştirme</li>
                 </ul>
               </div>
             </div>
-
             <div class="acc-panel">
               <div class="acc-bg-image bg-marketing"></div>
-
               <div class="acc-bg-number">04</div>
               <div class="vertical-title">
                 <span class="v-num">04</span>
-                <h3 class="v-text">Dijital Pazarlama (Growth)</h3>
+                <h3 class="v-text">Dijital Pazarlama</h3>
               </div>
               <div class="expanded-content">
                 <div class="exp-header">
@@ -577,74 +555,219 @@
                   <h3>Dijital Pazarlama</h3>
                 </div>
                 <ul class="exp-list">
-                  <li>Sosyal Medya Yönetimi ve İçerik Üretimi</li>
-                  <li>SEO (Arama Motoru Optimizasyonu)</li>
-                  <li>Performans Pazarlaması (Google, Meta Ads)</li>
+                  <li>Sosyal Medya Yönetimi</li>
+                  <li>SEO Optimizasyonu</li>
+                  <li>Performans Pazarlaması</li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      <section class="section-zigzag-services">
+        <div class="container-fluid">
+          <div class="zigzag-row">
+            <div class="z-visual">
+              <img
+                src="https://cdn.pixabay.com/photo/2024/05/20/13/28/ai-generated-8775235_1280.png"
+                alt="Web Yazılım"
+                class="z-img"
+              />
+            </div>
+            <div class="z-content">
+              <span class="fluid-subtitle">01 — Geliştirme</span>
+              <h2
+                class="giant-title"
+                style="
+                  font-size: clamp(2rem, 3.5vw, 3.5rem);
+                  margin-bottom: 20px;
+                "
+              >
+                Kusursuz Kod, <br /><span class="text-outline"
+                  >Sınırsız Güç.</span
+                >
+              </h2>
+              <p class="fluid-desc">
+                Kalıplaşmış hazır sistemleri bir kenara bırakın. İşletmenizin
+                tam ihtiyacına yönelik, yüksek trafik kaldırabilen, güvenli ve
+                performans odaklı özel web yazılımları geliştiriyoruz.
+              </p>
+              <ul class="z-list">
+                <li>Laravel & PHP Tabanlı Özel Sistemler</li>
+                <li>Ölçeklenebilir React / Node.js Mimarileri</li>
+                <li>B2B ve B2C E-Ticaret Altyapıları</li>
+                <li>API ve Otomasyon Entegrasyonları</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="zigzag-row reverse">
+            <div class="z-visual">
+              <img
+                src="https://cdn.pixabay.com/photo/2018/03/30/15/11/deer-3275594_1280.jpg"
+                alt="Tasarım Kreatif"
+                class="z-img"
+              />
+            </div>
+            <div class="z-content">
+              <span class="fluid-subtitle">02 — Kreatif</span>
+              <h2
+                class="giant-title"
+                style="
+                  font-size: clamp(2rem, 3.5vw, 3.5rem);
+                  margin-bottom: 20px;
+                "
+              >
+                Estetiğin <br /><span class="text-gradient-cyan"
+                  >Matematiği.</span
+                >
+              </h2>
+              <p class="fluid-desc">
+                Bir arayüzün sadece güzel görünmesi yetmez, aynı zamanda satışa
+                ve dönüşüme odaklanması gerekir. Kullanıcı psikolojisini baz
+                alarak unutulmaz UI/UX deneyimleri tasarlıyoruz.
+              </p>
+              <ul class="z-list">
+                <li>Figma ile Özel UI/UX Tasarımı</li>
+                <li>Kurumsal Kimlik & Marka Konumlandırma</li>
+                <li>Etkileşimli (Interactive) Web Animasyonları</li>
+                <li>Ürün ve Video Prodüksiyonu</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="zigzag-row">
+            <div class="z-visual">
+              <img
+                src="https://cdn.pixabay.com/photo/2023/02/05/01/09/artificial-intelligence-7768524_1280.jpg"
+                alt="Mobil Teknoloji"
+                class="z-img"
+              />
+            </div>
+            <div class="z-content">
+              <span class="fluid-subtitle">03 — İnovasyon</span>
+              <h2
+                class="giant-title"
+                style="
+                  font-size: clamp(2rem, 3.5vw, 3.5rem);
+                  margin-bottom: 20px;
+                "
+              >
+                Geleceği <br /><span class="text-outline"
+                  >Cebinize Taşıyın.</span
+                >
+              </h2>
+              <p class="fluid-desc">
+                Fikrinizi cebinize sığdırıyoruz. Hem iOS hem de Android
+                ekosistemlerinde kusursuz çalışan, yapay zeka destekli akıllı
+                mobil uygulamalar ve kiosk donanım entegrasyonları üretiyoruz.
+              </p>
+              <ul class="z-list">
+                <li>Native ve Cross-Platform Mobil Uygulamalar</li>
+                <li>Yapay Zeka (AI) & Hologram Çözümleri</li>
+                <li>POS ve Termal Donanım Entegrasyonları</li>
+                <li>Sürekli Bakım ve Güncelleme Desteği</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="zigzag-row reverse">
+            <div class="z-visual">
+              <img
+                src="https://cdn.pixabay.com/photo/2024/11/12/01/38/people-9191088_1280.png"
+                alt="Pazarlama SEO"
+                class="z-img"
+              />
+            </div>
+
+            <div class="z-content">
+              <span class="fluid-subtitle">04 — Büyüme</span>
+              <h2
+                class="giant-title"
+                style="
+                  font-size: clamp(2rem, 3.5vw, 3.5rem);
+                  margin-bottom: 20px;
+                "
+              >
+                Veri Odaklı <br /><span class="text-gradient-cyan"
+                  >Liderlik.</span
+                >
+              </h2>
+              <p class="fluid-desc">
+                Harika bir ürün inşa etmek yetmez, onu doğru kitleyle
+                buluşturmak gerekir. Arama motoru optimizasyonu ve performans
+                reklamlarıyla markanızı rakiplerinizin önüne geçiriyoruz.
+              </p>
+              <ul class="z-list">
+                <li>Stratejik Sosyal Medya Yönetimi</li>
+                <li>Teknik ve İçerik Odaklı SEO</li>
+                <li>Google & Meta Performans Reklamları</li>
+                <li>Dönüşüm Oranı Optimizasyonu (CRO)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="section-tech-marquee">
         <div class="marquee-container">
           <div class="marquee-track">
             <div class="marquee-item">
-              <span class="tech-icon">⚡</span>
-              <span class="tech-name">Laravel</span>
+              <span class="tech-icon">⚡</span
+              ><span class="tech-name">Laravel</span>
             </div>
             <div class="marquee-item">
-              <span class="tech-icon">⚛️</span>
-              <span class="tech-name">React</span>
+              <span class="tech-icon">⚛️</span
+              ><span class="tech-name">React</span>
             </div>
             <div class="marquee-item">
-              <span class="tech-icon">🟢</span>
-              <span class="tech-name">Node.js</span>
+              <span class="tech-icon">🟢</span
+              ><span class="tech-name">Node.js</span>
             </div>
             <div class="marquee-item">
-              <span class="tech-icon">🐍</span>
-              <span class="tech-name">Python</span>
+              <span class="tech-icon">🐍</span
+              ><span class="tech-name">Python</span>
             </div>
             <div class="marquee-item">
-              <span class="tech-icon">🍃</span>
-              <span class="tech-name">MongoDB</span>
+              <span class="tech-icon">🍃</span
+              ><span class="tech-name">MongoDB</span>
             </div>
             <div class="marquee-item">
-              <span class="tech-icon">🎨</span>
-              <span class="tech-name">Adobe CC</span>
+              <span class="tech-icon">🎨</span
+              ><span class="tech-name">Adobe CC</span>
             </div>
             <div class="marquee-item">
-              <span class="tech-icon">🌐</span>
-              <span class="tech-name">Three.js</span>
-            </div>
-
-            <div class="marquee-item">
-              <span class="tech-icon">⚡</span>
-              <span class="tech-name">Laravel</span>
+              <span class="tech-icon">🌐</span
+              ><span class="tech-name">Three.js</span>
             </div>
             <div class="marquee-item">
-              <span class="tech-icon">⚛️</span>
-              <span class="tech-name">React</span>
+              <span class="tech-icon">⚡</span
+              ><span class="tech-name">Laravel</span>
             </div>
             <div class="marquee-item">
-              <span class="tech-icon">🟢</span>
-              <span class="tech-name">Node.js</span>
+              <span class="tech-icon">⚛️</span
+              ><span class="tech-name">React</span>
             </div>
             <div class="marquee-item">
-              <span class="tech-icon">🐍</span>
-              <span class="tech-name">Python</span>
+              <span class="tech-icon">🟢</span
+              ><span class="tech-name">Node.js</span>
             </div>
             <div class="marquee-item">
-              <span class="tech-icon">🍃</span>
-              <span class="tech-name">MongoDB</span>
+              <span class="tech-icon">🐍</span
+              ><span class="tech-name">Python</span>
             </div>
             <div class="marquee-item">
-              <span class="tech-icon">🎨</span>
-              <span class="tech-name">Adobe CC</span>
+              <span class="tech-icon">🍃</span
+              ><span class="tech-name">MongoDB</span>
             </div>
             <div class="marquee-item">
-              <span class="tech-icon">🌐</span>
-              <span class="tech-name">Three.js</span>
+              <span class="tech-icon">🎨</span
+              ><span class="tech-name">Adobe CC</span>
+            </div>
+            <div class="marquee-item">
+              <span class="tech-icon">🌐</span
+              ><span class="tech-name">Three.js</span>
             </div>
           </div>
         </div>
@@ -656,25 +779,24 @@
             <div class="section-header">
               <span class="section-subtitle">Seçilmiş İşler</span>
               <h2 class="section-title">
-                Vizyonu Koda, <br />
-                <span class="text-gradient-cyan"
+                Vizyonu Koda, <br /><span class="text-gradient-cyan"
                   >Kodu Gerçeğe Dönüştürdük.</span
                 >
               </h2>
             </div>
             <p class="section-desc">
               Sadece ekranda güzel duran değil, arka planda devasa bir
-              mühendislikle çalışan, markalara seviye atlatan gurur tablomuz.
+              mühendislikle çalışan gurur tablomuz.
             </p>
           </div>
 
           <div class="stacked-cards-wrapper">
             <div class="stacked-card card-1">
-              <div class="project-content">
+              <div class="project-content solid-card">
                 <div class="project-info">
                   <div class="project-meta">
-                    <span class="meta-tag">AI & İnovasyon</span>
-                    <span class="meta-year">2026</span>
+                    <span class="meta-tag">AI & İnovasyon</span
+                    ><span class="meta-year">2026</span>
                   </div>
                   <h3 class="project-title">
                     Nilüfer Belediyesi Hologram Asistanı
@@ -691,7 +813,7 @@
                   <div
                     class="mockup-image"
                     style="
-                      background-image: url(&quot;https://www.ntc.edu/sites/default/files/styles/16_9_1600x900/public/2021-06/web-design-header.jpg?itok=KPytPu7S&quot;);
+                      background-image: url(&quot;https://www.ntc.edu/sites/default/files/styles/16_9_1600x900/public/2021-06/web-design-header.jpg&quot;);
                     "
                   ></div>
                 </div>
@@ -699,16 +821,15 @@
             </div>
 
             <div class="stacked-card card-2">
-              <div class="project-content">
+              <div class="project-content solid-card">
                 <div class="project-info">
                   <div class="project-meta">
-                    <span class="meta-tag">Özel Donanım & Yazılım</span>
-                    <span class="meta-year">2026</span>
+                    <span class="meta-tag">Özel Donanım</span
+                    ><span class="meta-year">2026</span>
                   </div>
                   <h3 class="project-title">Hexa POS & Termal Otomasyon</h3>
                   <p class="project-desc">
                     Honeywell barkod okuyucu ve termal yazıcı entegrasyonuyla
-                    işletmelere özel sıfırdan geliştirilmiş Android tabanlı
                     akıllı satış (POS) sistemi.
                   </p>
                   <a href="#" class="btn-project-link"
@@ -727,16 +848,16 @@
             </div>
 
             <div class="stacked-card card-3">
-              <div class="project-content">
+              <div class="project-content solid-card">
                 <div class="project-info">
                   <div class="project-meta">
-                    <span class="meta-tag">UI/UX & Kurumsal Web</span>
-                    <span class="meta-year">2026</span>
+                    <span class="meta-tag">UI/UX & Web</span
+                    ><span class="meta-year">2026</span>
                   </div>
                   <h3 class="project-title">Paninoteca Chicken</h3>
                   <p class="project-desc">
-                    Markanın iştah açıcı kurumsal kimliğini dijitale taşıyan,
-                    yüksek dönüşüm oranlı modern bir gastronomi web arayüzü.
+                    Markanın kurumsal kimliğini dijitale taşıyan yüksek dönüşüm
+                    oranlı gastronomi arayüzü.
                   </p>
                   <a href="#" class="btn-project-link"
                     >Detayları İncele <span class="arrow">↗</span></a
@@ -754,16 +875,16 @@
             </div>
 
             <div class="stacked-card card-4">
-              <div class="project-content">
+              <div class="project-content solid-card">
                 <div class="project-info">
                   <div class="project-meta">
-                    <span class="meta-tag">B2B Web Platformu</span>
-                    <span class="meta-year">2026</span>
+                    <span class="meta-tag">B2B Platform</span
+                    ><span class="meta-year">2026</span>
                   </div>
                   <h3 class="project-title">Duraxx Medikal Sistemleri</h3>
                   <p class="project-desc">
-                    Odyoloji ve medikal ürünler sektöründeki lider markanın
-                    uluslararası standartlara uygun yeni kurumsal web platformu.
+                    Odyoloji sektöründeki lider markanın uluslararası kurumsal
+                    web platformu.
                   </p>
                   <a href="#" class="btn-project-link"
                     >Detayları İncele <span class="arrow">↗</span></a
@@ -782,31 +903,335 @@
           </div>
         </div>
       </section>
+
+      <section id="hakkimizda" class="section-manifesto-fluid">
+        <div class="container-fluid manifesto-grid">
+          <div class="manifesto-left">
+            <div class="manifesto-text-area">
+              <div class="fluid-subtitle-wrapper">
+                <span class="fluid-subtitle">Felsefemiz</span>
+                <div class="fluid-line"></div>
+              </div>
+
+              <h2 class="giant-title">
+                Kalıplara sığmayan markalar için, <br />
+                <span class="text-gradient-cyan">sınırları kaldıran</span>
+                dijital deneyimler.
+              </h2>
+
+              <p class="fluid-desc">
+                Bizi sadece kod yazan veya tasarım yapan bir ajans olarak değil,
+                ekibinizin bir parçası olarak görün. Mühendisliğin matematiğini,
+                estetiğin ruhuyla harmanlıyor; dijital dünyada gerçekten yankı
+                uyandıran, kutusuz ve özgür işler üretiyoruz.
+              </p>
+            </div>
+
+            <div class="fluid-stats">
+              <div class="f-stat">
+                <span class="f-val">4+</span>
+                <span class="f-label">Uzman Ekip Arkadaşı</span>
+              </div>
+              <div class="f-stat-divider"></div>
+              <div class="f-stat">
+                <span class="f-val">%100</span>
+                <span class="f-label">Şeffaf Süreç</span>
+              </div>
+              <div class="f-stat-divider"></div>
+              <div class="f-stat">
+                <span class="f-val">∞</span>
+                <span class="f-label">Tutku & Özveri</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="manifesto-right">
+            <div class="manifesto-video-wrapper">
+              <video class="manifesto-video" autoplay loop muted playsinline>
+                <source
+                  src="https://cdn.pixabay.com/video/2021/09/10/88114-602317841_large.mp4"
+                  type="video/mp4"
+                />
+                Tarayıcınız video etiketini desteklemiyor.
+              </video>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section-team-grid">
+        <div class="container-fluid">
+          <div
+            class="services-header-wrapper text-center"
+            style="margin: 0 auto 60px"
+          >
+            <span class="fluid-subtitle">Hexa Core</span>
+            <h2 class="giant-title" style="margin-bottom: 0">
+              Arkadaki <span class="text-gradient-cyan">Güç.</span>
+            </h2>
+          </div>
+
+          <div class="team-badge-container">
+            <div class="team-card hexa-card">
+              <div class="t-image-wrapper">
+                <div
+                  class="t-image"
+                  style="
+                    background-image: url(&quot;assets/img/team/hisham.jpg&quot;);
+                  "
+                ></div>
+                <div class="t-overlay"></div>
+              </div>
+              <div class="t-info">
+                <span class="t-role"
+                  >Kurucu Ortağı / Kurumsal Yazılım Geliştirici</span
+                >
+                <h3 class="t-name">Haşim</h3>
+                <p class="t-desc">
+                  Karmaşık algoritmaları ve sistem mimarilerini uçtan uca inşa
+                  eden, Hexa'nın dijital motorunun arkasındaki mühendis.
+                </p>
+                <div class="t-socials">
+                  <a href="#">LinkedIn ↗</a>
+                  <a href="#">GitHub ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="team-card hexa-card">
+              <div class="t-image-wrapper">
+                <div
+                  class="t-image"
+                  style="
+                    background-image: url(&quot;assets/img/team/emir.jpg&quot;);
+                  "
+                ></div>
+                <div class="t-overlay"></div>
+              </div>
+              <div class="t-info">
+                <span class="t-role">Kurucu Ortağı / Operasyon Yönetimi</span>
+                <h3 class="t-name">Emir</h3>
+                <p class="t-desc">
+                  Müşterilerimizin dijital yolculuğundaki en yakın yol arkadaşı.
+                  Talepleri vizyona dönüştüren ve süreci yöneten stratejist.
+                </p>
+                <div class="t-socials">
+                  <a href="#">LinkedIn ↗</a>
+                  <a href="#">İletişim ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="team-card hexa-card">
+              <div class="t-image-wrapper">
+                <div
+                  class="t-image"
+                  style="
+                    background-image: url(&quot;assets/img/team/designer.jpg&quot;);
+                  "
+                ></div>
+                <div class="t-overlay"></div>
+              </div>
+              <div class="t-info">
+                <span class="t-role">Tasarım Uzmanı / Grafik Tasarım</span>
+                <h3 class="t-name">Creative Director</h3>
+                <p class="t-desc">
+                  Markaların ruhunu piksellere döken, estetik ve kullanıcı
+                  deneyimini (UX) modern çizgilerle harmanlayan görsel deha.
+                </p>
+                <div class="t-socials">
+                  <a href="#">Behance ↗</a>
+                  <a href="#">Dribbble ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="team-card hexa-card">
+              <div class="t-image-wrapper">
+                <div
+                  class="t-image"
+                  style="
+                    background-image: url(&quot;assets/img/team/designer.jpg&quot;);
+                  "
+                ></div>
+                <div class="t-overlay"></div>
+              </div>
+              <div class="t-info">
+                <span class="t-role">Tasarım Uzmanı / Grafik Tasarım</span>
+                <h3 class="t-name">Sosyal Medya Uzmanı</h3>
+                <p class="t-desc">
+                  Markaların ruhunu piksellere döken, estetik ve kullanıcı
+                  deneyimini (UX) modern çizgilerle harmanlayan görsel deha.
+                </p>
+                <div class="t-socials">
+                  <a href="#">Behance ↗</a>
+                  <a href="#">Dribbble ↗</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section-testimonial-fluid">
+        <div class="container-fluid">
+          <div class="testimonial-single">
+            <div class="huge-quote-mark">“</div>
+            <h3 class="testimonial-huge-text">
+              Sadece bir web sitesi istemiştik, bize baştan uca bir dijital
+              vizyon sundular. Ortaya çıkan sonuç sektördeki rakiplerimizden
+              fersah fersah önde olmamızı sağladı.
+            </h3>
+            <div class="testimonial-author-fluid">
+              <span class="author-name">Paninoteca Chicken</span>
+              <span class="author-title">— Kurucu</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-faq-split">
+        <div class="container-fluid faq-grid">
+          <div class="faq-left">
+            <span class="fluid-subtitle">Merak Edilenler</span>
+            <h2 class="giant-title">
+              Aklınıza <br /><span class="text-outline">Takılanlar.</span>
+            </h2>
+            <p class="fluid-desc" style="max-width: 90%">
+              Sürecimiz, fiyatlandırma ve projelerin işleyişi hakkında en çok
+              merak edilenleri sizin için derledik.
+            </p>
+          </div>
+
+          <div class="faq-right">
+            <div class="faq-container">
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h3>Bir projenin teslim süresi nedir?</h3>
+                  <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                  <div class="faq-answer-inner">
+                    <p>
+                      Her proje parmak izi gibi benzersizdir. Ancak standart bir
+                      kurumsal web platformunun tasarımı ve kodlanması, ilk
+                      analizden lansmana kadar ortalama 4 ila 6 hafta
+                      sürmektedir. Özel yazılımlar ve AI entegrasyonlarında bu
+                      süre projenin çapına göre belirlenir.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h3>Hazır şablonlar kullanıyor musunuz?</h3>
+                  <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                  <div class="faq-answer-inner">
+                    <p>
+                      Kesinlikle hayır. Biz butik ve premium bir dijital
+                      ajansız. Ürettiğimiz her arayüz markanızın DNA'sına özel
+                      olarak sıfırdan tasarlanır (Figma) ve en güncel
+                      teknolojilerle (React, Laravel vb.) sıfırdan kodlanır.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h3>Fiyatlandırma politikanız nasıl?</h3>
+                  <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                  <div class="faq-answer-inner">
+                    <p>
+                      Projeleri "paket" mantığıyla değil, "ihtiyaç" mantığıyla
+                      değerlendiriyoruz. Sizinle yapacağımız ilk strateji
+                      toplantısından sonra projenin kapsamını, kullanılacak
+                      teknolojileri ve harcanacak mesaiyi hesaplayarak şeffaf
+                      bir bütçe sunuyoruz.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h3>Proje bittikten sonra destek veriyor musunuz?</h3>
+                  <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                  <div class="faq-answer-inner">
+                    <p>
+                      Elbette. Proje yayına alındıktan sonra sistemi kaderine
+                      terk etmiyoruz. İhtiyacınıza göre belirleyeceğimiz bakım
+                      anlaşmalarıyla yazılımınızın güncel, güvenli ve hızlı
+                      kalmasını sağlıyoruz.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer id="iletisim" class="fluid-footer">
+        <div class="container-fluid">
+          <div class="footer-cta-wrapper">
+            <h2 class="footer-huge-title">
+              Birlikte <br />
+              <span class="text-outline">Büyüyelim.</span>
+            </h2>
+
+            <div class="footer-action-area">
+              <p>
+                Harika bir fikriniz mi var? Kahveler bizden, sohbet sizden.
+                Projenizi bir sonraki seviyeye taşımak için buradayız.
+              </p>
+              <a href="mailto:hello@hexadijital.com" class="magnetic-btn">
+                Bize Ulaşın <span class="arrow">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-bottom-fluid">
+            <div class="f-brand-col">
+              <div class="nav-brand-text">
+                <span class="text-hexa" style="font-size: 1.8rem">HEXA</span>
+                <span class="text-dijital" style="font-size: 1.1rem"
+                  >Dijital</span
+                >
+              </div>
+              <p class="f-tagline">
+                Bursa'dan tüm dünyaya dijital mükemmellik.
+              </p>
+            </div>
+
+            <div class="f-links-col">
+              <a href="#hizmetler">Hizmetler</a>
+              <a href="#projeler">Projeler</a>
+              <a href="#hakkimizda">Hakkımızda</a>
+            </div>
+
+            <div class="f-social-col">
+              <a href="#">Instagram</a>
+              <a href="#">Behance</a>
+              <a href="#">LinkedIn</a>
+            </div>
+          </div>
+
+          <div class="footer-copyright">
+            <span>&copy; 2026 Hexa Dijital. Tüm hakları saklıdır.</span>
+          </div>
+        </div>
+      </footer>
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="assets/js/script.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const panels = document.querySelectorAll(".acc-panel");
-
-        // İlk paneli varsayılan olarak açık getirmek istersen aşağıdaki satırı açabilirsin:
-        // if(panels.length > 0) panels[0].classList.add('active');
-
-        panels.forEach((panel) => {
-          panel.addEventListener("click", () => {
-            // Tıklanan zaten açıksa hiçbir şey yapma veya kapat
-            if (panel.classList.contains("active")) return;
-
-            // Diğer tüm panellerden active sınıfını kaldır (Kapanmalarını sağla)
-            panels.forEach((p) => p.classList.remove("active"));
-
-            // Tıklanan panele active sınıfını ekle (Açılmasını sağla)
-            panel.classList.add("active");
-          });
-        });
-      });
-    </script>
+    <script></script>
   </body>
 </html>
