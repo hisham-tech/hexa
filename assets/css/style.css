@@ -2878,6 +2878,7 @@ span.flatpickr-weekday {
 }
 
 /* --- MOBİL UYUMLULUK --- */
+/* --- MOBİL UYUMLULUK --- */
 @media (max-width: 992px) {
   .footer-cta-wrapper {
     flex-direction: column;
@@ -2905,24 +2906,47 @@ span.flatpickr-weekday {
 
   .f-tagline {
     max-width: 100%;
-    margin: 15px auto 0;
+    margin: 15px 0 0;
   }
 
   .f-links-col,
   .f-social-col {
-    align-items: left;
+    align-items: flex-start;
+    /* 'left' yerine 'flex-start' kullanmalıyız */
   }
 
   .f-links-col a:hover,
   .f-social-col a:hover {
-    transform: translateY(-3px);
+    transform: translateX(8px);
+    /* Yukarı kaymak yerine sağa kayması tasarıma daha uygun */
   }
 
+  /* Mobilde inputlar alt alta gelsin */
   .inline-input-group {
     flex-direction: column;
+    gap: 12px;
   }
 
-  /* Mobilde takvim ve seçici alt alta gelsin */
+  /* HAYAT KURTARAN DÜZELTME: Mobilde iç boşlukları daraltıyoruz ki elemanlara yer kalsın */
+  .meeting-front,
+  .meeting-back {
+    padding: 25px;
+  }
+
+  /* Mobilde ön yüz yüksekliği */
+  .meeting-card {
+    height: 380px;
+  }
+
+  /* Mobilde form ve takvim için gereken net alan */
+  .meeting-card.form-active {
+    height: 680px;
+  }
+
+  /* Mobilde başarı ikonunu bir tık küçültüyoruz */
+  .success-icon {
+    font-size: 3rem;
+  }
 }
 
 /* ==========================================================================
