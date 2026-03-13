@@ -664,6 +664,7 @@ html {
   font-size: 0.85rem;
   transition: background 0.3s, color 0.3s, transform 0.3s;
   background: rgba(0, 255, 209, 0.03);
+  text-decoration: none;
 }
 
 .btn-outline:hover {
