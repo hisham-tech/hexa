@@ -3645,3 +3645,17 @@ select {
     font-size: 16px;
   }
 }
+
+/* Mobil cihazlardaki mavi dokunma (tap) efektini tamamen şeffaf yapar */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Tıklandığında veya klavyeyle seçildiğinde çıkan standart çerçeveyi (outline) de kaldıralım */
+input:focus,
+select:focus,
+textarea:focus,
+button:focus,
+a:focus {
+  outline: none;
+}
