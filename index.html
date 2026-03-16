@@ -68,13 +68,11 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <script
-      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
-      type="module"
-    ></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      media="print"
+      onload="this.media = 'all'"
     />
     <link
       rel="stylesheet"
@@ -733,8 +731,9 @@
             <div class="z-visual">
               <img
                 src="assets/img/pro/1.webp"
-                alt="Web Yazılım"
+                alt="Bursa özel web yazılım ve mobil uygulama geliştirme hizmetleri"
                 class="z-img"
+                loading="lazy"
               />
             </div>
             <div class="z-content">
@@ -769,8 +768,9 @@
             <div class="z-visual">
               <img
                 src="assets/img/pro/2.webp"
-                alt="Tasarım Kreatif"
+                alt="Modern ve kurumsal kimliğe uygun UI/UX web tasarımı"
                 class="z-img"
+                loading="lazy"
               />
             </div>
             <div class="z-content">
@@ -804,8 +804,9 @@
             <div class="z-visual">
               <img
                 src="assets/img/pro/3.webp"
-                alt="Mobil Teknoloji"
+                alt="Python tabanlı donanım entegrasyonu, Android POS ve akıllı sistemler"
                 class="z-img"
+                loading="lazy"
               />
             </div>
             <div class="z-content">
@@ -839,11 +840,11 @@
             <div class="z-visual">
               <img
                 src="assets/img/pro/4.webp"
-                alt="Pazarlama SEO"
+                alt="Veri odaklı dijital pazarlama, SEO analizi ve sosyal medya yönetimi"
                 class="z-img"
+                loading="lazy"
               />
             </div>
-
             <div class="z-content">
               <span class="fluid-subtitle">04 — Büyüme</span>
               <h2
@@ -874,7 +875,6 @@
           </div>
         </div>
       </section>
-
       <section class="section-tech-marquee">
         <div class="marquee-container">
           <div class="marquee-track">
@@ -1696,11 +1696,30 @@
         </div>
       </footer>
     </main>
-    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/tr.js"></script>
-    <script src="assets/js/script.js"></script>
+
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+      defer
+    ></script>
+    <script
+      src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+      defer
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/tr.js"
+      defer
+    ></script>
+
+    <script src="assets/js/script.js" defer></script>
   </body>
 </html>
